@@ -1,0 +1,139 @@
+<div class="p-grid">
+  <div class="p-col-12">
+
+
+    <div class="card">
+
+      <p-table #dt [value]="leads" [rows]="10" [paginator]="true" [rowHover]="true" dataKey="id" [loading]="loading"
+        styleClass="p-datatable-customers"
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+        [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+          <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header">
+            <h5 class="p-m-0">Prospectos</h5>
+            <!-- <button pButton pRipple label="Nuevo record" icon="pi pi-plus" class="p-button-success p-mr-2 p-mb-2"
+            (click)="openNew()"></button> -->
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="Status">Estado del prospecto <p-sortIcon field="Status"></p-sortIcon>
+            </th>
+            <th pSortableColumn="LeadSource">Origen del prospecto <p-sortIcon field="LeadSource"></p-sortIcon>
+            </th>
+            <th pSortableColumn="Industry">Sector <p-sortIcon field="Industry"></p-sortIcon>
+            </th>
+            <th pSortableColumn="Rating">Valoración <p-sortIcon field="Rating"></p-sortIcon>
+            </th>
+
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-lead>
+          <tr>
+            <td>
+              {{lead.Status}}
+            </td>
+            <td>
+              {{lead.LeadSource}}
+            </td>
+            <td>
+              {{lead.Industry}}
+            </td>
+            <td>
+              {{lead.Rating}}
+            </td>
+            <td>
+              <button pButton pRipple class="p-button-rounded p-button-success p-mr-2"
+                (click)="view(lead)">Ver</button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+
+
+    <p-dialog [(visible)]="editDialog" [style]="{width: '1000px'}" header="Cotización-Modificar" [modal]="true"
+      styleClass="p-fluid">
+      <ng-template pTemplate="content">
+
+        <div class="card">
+          <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12 p-md-6">
+              <label >Company</label>
+              <input [(ngModel)]="editedLead.Company" type="text" pInputText>
+            </div>
+            <div class="p-field p-col-12 p-md-6">
+              <label >Title</label>
+              <input [(ngModel)]="editedLead.Title" type="text" pInputText>
+            </div>
+
+          </div>
+        </div>
+
+      </ng-template>
+
+      <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text"
+          (click)="hideEditDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="save()"></button>
+        <p-progressSpinner [style]="{width: '20px', height: '20px'}" *ngIf="updating"></p-progressSpinner>
+      </ng-template>
+    </p-dialog>
+
+    <p-dialog [(visible)]="viewDialog" [style]="{width: '1000px'}" header="Cotización" [modal]="true"
+      styleClass="p-fluid">
+      <ng-template pTemplate="content">
+
+
+        <div class="p-d-flex p-jc-md-between">
+          <h5>Detailes</h5>
+          <div>
+            <button pButton pRipple class="p-button-rounded p-button-success p-mr-2" (click)="edit()">Modificar</button>
+          </div>
+        </div>
+
+
+        <hr>
+        <p-accordion [multiple]="true">
+          <p-accordionTab header="INFIRMACIÓN GENERAL" [selected]="true">
+            <div class="p-col-12">
+              <div class="card">
+                <table class="infoTable">
+                  <tr>
+                    <th>Company</th>
+                    <td>{{ selectedLead.Company }}</td>
+                    <th>Name</th>
+                    <td>{{ selectedLead.Name }}</td>
+                  </tr>
+                  <tr>
+                    <th>Title</th>
+                    <td>{{ selectedLead.Title }}</td>
+                    <th>Zona</th>
+                    <td>{{ selectedLead.Zona }}</td>
+                  </tr>
+                  <tr>
+                    <th>Phone</th>
+                    <td>{{ selectedLead.Phone }}</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </p-accordionTab>
+          <p-accordionTab header="TAREAS" [selected]="true">
+            <p>-List of tareas</p>
+          </p-accordionTab>
+        </p-accordion>
+
+      </ng-template>
+
+      <!--  <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveLookup()"></button>
+      </ng-template> -->
+    </p-dialog>
+
+    <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+  </div>
+</div>

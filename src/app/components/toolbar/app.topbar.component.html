@@ -1,0 +1,15 @@
+<div class="topbar">
+    <div id="topbar-left">
+        <a id="omega-menu-button" href="#" (click)="appMain.toggleMenu($event)">
+            <span class="pi pi-bars"></span>
+        </a>
+        <ng-template ngFor let-item let-last="last" [ngForOf]="items">
+            <span class="topbar-title">{{item.label}}</span>
+        </ng-template>
+    </div>
+
+    <a id="options-menu-button" href="#">
+        <span class="pi pi-ellipsis-h"></span>
+    </a>
+
+</div>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!--
+HTML Bootstrap 5 Admin Dashboard for Lady Lee
+Author: CR Webs
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Dashbord Administrativo para Lady Lee">
+  <meta name="author" content="CRWebs">
+  <meta name="keywords" content="LadyLee, hogar, todo para su hogar, Lady Lee">
+
+	<title>Lady Lee - Todo para mi hogar - Editar Tarea Cotizaciones</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- End fonts -->
+
+	<!-- core:css -->
+	<link rel="stylesheet" href="vendors/core/core.css">
+	<!-- endinject -->
+
+	<!-- Plugin css for this page -->
+  <link rel="stylesheet" href="vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+	<!-- End plugin css for this page -->
+
+	<!-- inject:css -->
+	<link rel="stylesheet" href="fonts/feather-font/css/iconfont.css">
+	<link rel="stylesheet" href="vendors/flag-icon-css/css/flag-icon.min.css">
+	<!-- endinject -->
+
+  <!-- Layout styles -->  
+	<link rel="stylesheet" href="css/demo3/style.css">
+  <!-- End layout styles -->
+
+  <link rel="shortcut icon" href="images/favicon.png" />
+</head>
+<body>
+	<div class="main-wrapper">
+
+		<!-- partial:../../partials/_navbar.html -->
+    <div class="horizontal-menu">
+      <nav class="navbar top-navbar">
+        <div class="container">
+          <div class="navbar-content">
+            <a href="#"><img src="images/logo-admin.png" >
+            </a>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="profile">
+                </a>
+                <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                  <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                    <div class="mb-3">
+                      <img class="wd-80 ht-80 rounded-circle" src="https://via.placeholder.com/80x80" alt="">
+                    </div>
+                    <div class="text-center">
+                      <p class="tx-16 fw-bolder">Carlos Castro</p>
+                      <p class="tx-12 text-muted">carloscastro@gmail.com</p>
+                    </div>
+                  </div>
+                  <ul class="list-unstyled p-1">
+                    <li class="dropdown-item py-2">
+                      <a href="javascript:;" class="text-body ms-0">
+                        <i class="me-2 icon-md" data-feather="log-out"></i>
+                        <span>Cerrar Sesión</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+              <i data-feather="menu"></i>         
+            </button>
+          </div>
+        </div>
+      </nav>
+      <nav class="bottom-navbar">
+        <div class="container-menu">
+          <ul class="nav page-navigation">
+            <li class="nav-item">
+              <a class="nav-link" href="prospectos.html">
+                <i class="link-icon" data-feather="home"></i>
+                <span class="menu-title">Prospectos</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="cotizaciones.html" class="nav-link">
+                <i class="link-icon" data-feather="home"></i>
+                <span class="menu-title">Cotizaciones</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <!-- partial -->
+		<div class="page-wrapper">
+			<div class="page-content">
+        <div class="row">
+          <div class="col-md-12 stretch-card">
+            <div class="card">
+              <div class="card-body">
+                    <div class="row ">
+                      <div class="col-sm-6">
+                          <h3 class="card-title">Bienvenido Juan Robles</h3>
+                          <h5 class="card-title">Editar de la Cotización</h5>
+                      </div><!-- Col -->
+                      <div class="col-sm-6">
+                          <button type="button" class="btn btn-primary btn-xs">Guardar</button> <button type="button" class="btn btn-primary btn-xs">Volver</button>
+                      </div><!-- Col -->
+                    </div><!-- Row -->
+              </div>
+            </div>
+          </div>
+        </div>
+				<div class="row">
+					<div class="col-md-12 stretch-card">
+						<div class="card">
+							<div class="card-body">
+								<h6 class="card-title">Detalles</h6>
+									<form>
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="mb-3">
+													<label class="form-label">Tienda de Preferencia</label>
+													<input type="text" class="form-control" placeholder="Tienda de Preferencia">
+												</div>
+                        <div class="mb-3">
+                          <label class="form-label">Cotización</label>
+                          <input type="text" class="form-control" placeholder="Cotización">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Nombre de la Cuenta</label>
+                          <input type="text" class="form-control" placeholder="Nombre de la Cuenta">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Prospecto</label>
+                          <input type="text" class="form-control" placeholder="Prospecto">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Identificación</label>
+                          <input type="text" class="form-control" placeholder="Identificación">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Tipo</label>
+                          <input type="text" class="form-control" placeholder="Producto">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Etapa</label>
+                          <input type="text" class="form-control" placeholder="Contactación">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Estado de la Cotización</label>
+                          <input type="text" class="form-control" placeholder="Aprobado">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Razón de Pérdida</label>
+                          <input type="text" class="form-control" placeholder="Razón de Pérdida">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Cotización Facturada</label>
+                          <input type="text" class="form-control" placeholder="Cotización Facturada">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Fecha de creación</label>
+                          <input type="text" class="form-control" placeholder="Fecha de creación">
+                        </div>
+											</div><!-- Col -->
+											<div class="col-sm-6">
+												<div class="mb-3">
+													<label class="form-label">Oficial de Ventas</label>
+													<input type="text" class="form-control" placeholder="Oficial de Ventas">
+												</div>
+                        <div class="mb-3">
+                          <label class="form-label">Código Vendedor</label>
+                          <input type="text" class="form-control" placeholder="Código Vendedor">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Propietario de cotización</label>
+                          <input type="text" class="form-control" placeholder="Propietario de cotización">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Monto Total</label>
+                          <input type="text" class="form-control" placeholder="Monto Total">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Monto Prima</label>
+                          <input type="text" class="form-control" placeholder="Monto Prima">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Monto Financiamiento</label>
+                          <input type="text" class="form-control" placeholder="Monto Financiamiento">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Plazo</label>
+                          <input type="text" class="form-control" placeholder="Plazo">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Cuota</label>
+                          <input type="text" class="form-control" placeholder="Cuota">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Frecuencia de Pago</label>
+                          <input type="text" class="form-control" placeholder="Frecuencia de Pago">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">Fecha de cierre</label>
+                          <input type="text" class="form-control" placeholder="Fecha de cierre">
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label">TipoCompra</label>
+                          <input type="text" class="form-control" placeholder="TipoCompra">
+                        </div>
+											</div><!-- Col -->
+										</div><!-- Row -->
+                    <div class="row">
+                      <div class="col-md-12 stretch-card grid-margin">
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-title">Facturación</h6>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="mb-3">
+                                      <label class="form-label">Forma de Pago</label>
+                                      <input type="text" class="form-control" placeholder="Crédito">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label class="form-label">Probabilidad</label>
+                                      <input type="text" class="form-control" placeholder="10%">
+                                    </div>
+                                  </div><!-- Col -->
+                                  <div class="col-sm-6">
+                                    <div class="mb-3">
+                                      <label class="form-label">Número de Factura</label>
+                                      <input type="text" class="form-control" placeholder="123456789">
+                                    </div>
+                                  </div><!-- Col -->
+                                </div><!-- Row -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 stretch-card grid-margin">
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-title">Valor de la Cotización</h6>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="mb-3">
+                                      <label class="form-label">Monto sin impuesto</label>
+                                      <input type="text" class="form-control" placeholder="Monto sin impuesto">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label class="form-label">Impuesto</label>
+                                      <input type="text" class="form-control" placeholder="Impuesto">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label class="form-label">Monto Total</label>
+                                      <input type="text" class="form-control" placeholder="Monto Total">
+                                    </div>
+                                  </div><!-- Col -->
+                                  <div class="col-sm-6">
+                                    <div class="mb-3">
+                                      <label class="form-label">Descuento</label>
+                                      <input type="text" class="form-control" placeholder="5%">
+                                    </div>
+                                  </div><!-- Col -->
+                                </div><!-- Row -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12 stretch-card grid-margin">
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-title">Datos de Contacto</h6>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="mb-3">
+                                      <label class="form-label">Teléfono</label>
+                                      <input type="text" class="form-control" placeholder="2785-2405">
+                                    </div>
+                                    <div class="mb-3">
+                                      <label class="form-label">Email</label>
+                                      <input type="text" class="form-control" placeholder="carloscastro@gmail.com">
+                                    </div>
+                                  </div><!-- Col -->
+                                  <div class="col-sm-6">
+                                    <div class="mb-3">
+                                      <label class="form-label">Observaciones</label>
+                                      <input type="text" class="form-control" placeholder="Observaciones">
+                                    </div>
+                                  </div><!-- Col -->
+                                </div><!-- Row -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+									</form>
+									<button type="button" class="btn btn-primary submit">Guardar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- partial:../../partials/_footer.html -->
+      <footer class="footer border-top">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between py-3 small">
+          <p class="text-muted mb-1 mb-md-0">Copyright © 2022 <a href="https://www.nobleui.com" target="_blank">Lady Lee</a>.</p>
+          <p class="text-muted">Hecho con <i class="mb-1 text-primary ms-1 icon-sm" data-feather="heart"></i> por Incompany</p>
+        </div>
+      </footer>
+      <!-- partial -->
+		</div>
+	</div>
+  
+	<!-- core:js -->
+	<script src="vendors/core/core.js"></script>
+	<!-- endinject -->
+
+	<!-- Plugin js for this page -->
+	<!-- End plugin js for this page -->
+
+	<!-- inject:js -->
+	<script src="vendors/feather-icons/feather.min.js"></script>
+	<script src="js/template.js"></script>
+	<!-- endinject -->
+
+	<!-- Custom js for this page -->
+	<!-- End custom js for this page -->
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+{    
+    "/api/login": {
+        "target": "https://ladylee--partialqa.my.salesforce.com/services/apexrest/Login",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/login": ""
+        }
+    },
+    "/api/opportunities": {
+        "target": "https://ladylee--partialqa.my.salesforce.com/services/apexrest/GetOpportunities",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/login": ""
+        }
+    },
+    "/api/leads": {
+        "target": "https://ladylee--partialqa.my.salesforce.com/services/apexrest/GetLeads",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/leads": ""
+        }
+    },
+    "/api/updateOpportunity": {
+        "target": "https://ladylee--partialqa.my.salesforce.com/services/apexrest/UpdateOpportunity",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/updateOpportunity": ""
+        }
+    },
+    "/api/updateLead": {
+        "target": "https://ladylee--partialqa.my.salesforce.com/services/apexrest/UpdateLead",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/updateLead": ""
+        }
+    },
+    "/api/tasks": {
+        "target": "https://ladylee--partialqa.my.salesforce.com/services/apexrest/GetTasks",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/tasks": ""
+        }
+    },
+    "/api/updateTask": {
+        "target": "https://ladylee--partialqa.my.salesforce.com/services/apexrest/UpdateTask",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/updateTask": ""
+        }
+    },
+    "/api/createTask": {
+        "target": "https://ladylee--partialqa.my.salesforce.com/services/apexrest/CreateTask",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/createTask": ""
+        }
+    }
+
+}
