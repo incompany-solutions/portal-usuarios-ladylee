@@ -41,12 +41,12 @@
 
 html {
   height: 100%;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 body {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
   padding: 0;
   background-color: #edf0f5;
@@ -716,27 +716,6 @@ a {
   clear: both;
 }
 
-.card {
-  background-color: #ffffff;
-  padding: 1em;
-  margin-bottom: 2rem;
-}
-.card:last-child {
-  margin-bottom: 0;
-}
-.card .card-header {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-.card .card-subtitle {
-  color: #6c757d;
-  font-weight: 600;
-  margin: -1rem 0 1rem 0;
-}
 
 /* Dashboard */
 .dashboard .card {

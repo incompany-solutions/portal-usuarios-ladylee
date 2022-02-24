@@ -1,3 +1,27 @@
 .p-invalid {
     color: red;
 }
+
+
+.p-datatable .p-datatable-header {
+     background: none; 
+     border: none; 
+}
+
+.p-datatable .p-datatable-thead > tr > th{
+    background-color: unset;
+    border-top: 0;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #7987a1;
+}
+
+.p-datatable .p-datatable-tbody > tr {
+    color: unset;
+    font-size: 14px;
+}
+.p-datatable .p-datatable-tbody > tr > td {
+    font-size: 14px;
+    padding: 0.85rem 0.85rem
+}

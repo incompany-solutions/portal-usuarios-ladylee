@@ -43,7 +43,7 @@ export class ContactComponent implements OnInit {
 	
 	edit() {
 		this.editedLead = {
-			Id:this.selectedLead.Id,
+			LeadID:this.selectedLead.LeadID,
 			Company:this.selectedLead.Company,
 			Title: this.selectedLead.Title
 		} as Lead;
@@ -64,14 +64,14 @@ export class ContactComponent implements OnInit {
 		this.viewDialog=true;
 	}
 
-	save() {
+/* 	save() {
 
 		let editModel: LeadEdit = {
 			data: {
 				Company: this.editedLead.Company,
 				Title: this.editedLead.Title
 			},
-			leadId: this.editedLead.Id
+			leadId: this.editedLead.LeadID
 		}
 		this.updating=true;
 		this.apiService.updateLead(editModel).subscribe((response) => {
@@ -88,7 +88,7 @@ export class ContactComponent implements OnInit {
 			this.updating=false;
 		})
 
-	}
+	} */
 
 	
 	/* 

@@ -1,41 +1,82 @@
-<div
-  class="wrapper"
-  [ngClass]="{
-    'menu-layout-overlay': isOVerlay(),
-    'menu-layout-static': isStatic(),
-    'layout-light': app.lightMenu,
-    'sidebar-inactive-l': menuInactiveDesktop,
-    'sidebar-active-m': menuActiveMobile,
-    'p-ripple-disabled': !app.ripple,
-    'p-input-filled': app.inputStyle === 'filled'
-  }"
->
-  <app-topbar></app-topbar>
+  <div class="main-wrapper">
 
-  <div class="sidebar" (click)="onMenuClick()">
-    <div class="sidebar-scroll-content">
-      <div class="logo" routerLink="/" style="outline: none; cursor: pointer">
-        <h4 style="color:white;" >Ladylee</h4>
-      </div>
-      <div class="profile" >
-        <img src="assets/layout/images/profile.png" alt="" />
-        <a id="profile-button" href="#" (click)="toggleProfile($event)">
-          <span class="username">Test User</span>
-          <i class="pi pi-fw pi-cog"></i>
-        </a>
-        <ul [@submenu]="profileActive ? 'visible' : 'hidden'">
-          
-          <li>
-            <a href="#" (click)="logout()"><i class="pi pi-fw pi-sign-out"></i><span>Logout</span></a>
-          </li>
-        </ul>
-      </div>
-      <app-menu></app-menu>
+		<!-- partial:../../partials/_navbar.html -->
+    <div class="horizontal-menu">
+      <nav class="navbar top-navbar">
+        <div class="container">
+          <div class="navbar-content">
+            <a href="#"><img src="assets/images/logo-admin.png" >
+            </a>
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="profile">
+                </a>
+                <div class="dropdown-menu p-0" aria-labelledby="profileDropdown">
+                  <div class="d-flex flex-column align-items-center border-bottom px-5 py-3">
+                    <div class="mb-3">
+                      <img class="wd-80 ht-80 rounded-circle" src="https://via.placeholder.com/80x80" alt="">
+                    </div>
+                    <div class="text-center">
+                      <p class="tx-16 fw-bolder">Carlos Castro</p>
+                      <p class="tx-12 text-muted">carloscastro@gmail.com</p>
+                    </div>
+                  </div>
+                  <ul class="list-unstyled p-1">
+                    <li class="dropdown-item py-2" (click)="logout()">
+                      <a  class="text-body ms-0">
+                        <i class="me-2 icon-md" data-feather="log-out"></i>
+                        <span>Cerrar Sesión</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+              <i data-feather="menu"></i>         
+            </button>
+          </div>
+        </div>
+      </nav>
+      <nav class="bottom-navbar">
+        <div class="container-menu">
+          <ul class="nav page-navigation">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/leads']">
+                <i class="link-icon" data-feather="home"></i>
+                <span class="menu-title">Prospectos</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a  [routerLink]="['/opportunities']" class="nav-link">
+                <i class="link-icon" data-feather="home"></i>
+                <span class="menu-title">Cotizaciones</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
-  </div>
-  <div class="main">
-    <router-outlet></router-outlet>
-  </div>
+    <!-- partial -->
+	
+		<div class="page-wrapper">
+
+			<div class="page-content">
+
+        <router-outlet></router-outlet>
 
 
-</div>
+      </div>
+
+			<!-- partial:../../partials/_footer.html -->
+			<footer class="footer border-top">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between py-3 small">
+          <p class="text-muted mb-1 mb-md-0">Copyright © 2022 <a href="https://www.nobleui.com" target="_blank">Lady Lee</a>.</p>
+          <p class="text-muted">Hecho con <i class="mb-1 text-primary ms-1 icon-sm" data-feather="heart"></i> por Incompany</p>
+        </div>
+      </footer>
+			<!-- partial -->
+	
+		</div>
+	</div>

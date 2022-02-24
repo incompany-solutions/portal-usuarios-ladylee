@@ -11,6 +11,7 @@ export const environment = {
     opportunities: '/api/opportunities',
     updateOpportunity: '/api/updateOpportunity',
     leads: '/api/leads',
+    getlead: '/api/getlead',
     updateLead: '/api/updateLead',
     tasks:'/api/tasks',
     updateTask:'/api/updateTask',

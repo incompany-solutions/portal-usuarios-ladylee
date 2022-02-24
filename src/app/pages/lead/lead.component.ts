@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { Lead, LeadEdit } from '../../model/lead';
@@ -20,12 +21,14 @@ export class LeadComponent implements OnInit {
 	editedLead: Lead;
 	updating: boolean = false;
 
-	constructor(private confirmationService: ConfirmationService, private messageService: MessageService, private apiService: ApiService) {
+	constructor(private confirmationService: ConfirmationService,
+		private router: Router, private messageService: MessageService, private apiService: ApiService) {
 
 
 	}
 
 	ngOnInit() {
+		localStorage.removeItem('selectedLead');
 		this.list();
 	}
 
@@ -43,7 +46,7 @@ export class LeadComponent implements OnInit {
 	
 	edit() {
 		this.editedLead = {
-			Id:this.selectedLead.Id,
+			LeadID:this.selectedLead.LeadID,
 			Company:this.selectedLead.Company,
 			Title: this.selectedLead.Title
 		} as Lead;
@@ -53,8 +56,11 @@ export class LeadComponent implements OnInit {
 	}
 
 	view($lead) {
-		this.selectedLead = $lead;
-		this.viewDialog = true;
+		localStorage.setItem('selectedLead', JSON.stringify($lead));
+		this.router.navigate(['/viewlead']);
+		
+		/* this.selectedLead = $lead;
+		this.viewDialog = true; */
 	}
 
 
@@ -64,14 +70,14 @@ export class LeadComponent implements OnInit {
 		this.viewDialog=true;
 	}
 
-	save() {
+	/* save() {
 
 		let editModel: LeadEdit = {
 			data: {
 				Company: this.editedLead.Company,
 				Title: this.editedLead.Title
 			},
-			leadId: this.editedLead.Id
+			leadId: this.editedLead.LeadID
 		}
 		this.updating=true;
 		this.apiService.updateLead(editModel).subscribe((response) => {
@@ -88,7 +94,7 @@ export class LeadComponent implements OnInit {
 			this.updating=false;
 		})
 
-	}
+	} */
 
 	
 	/* 

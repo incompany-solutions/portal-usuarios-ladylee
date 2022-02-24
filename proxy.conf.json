@@ -23,6 +23,14 @@
             "^/api/leads": ""
         }
     },
+    "/api/getlead": {
+        "target": "https://ladylee--partialqa.my.salesforce.com/services/apexrest/GetLead",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/getlead": ""
+        }
+    },
     "/api/updateOpportunity": {
         "target": "https://ladylee--partialqa.my.salesforce.com/services/apexrest/UpdateOpportunity",
         "secure": true,

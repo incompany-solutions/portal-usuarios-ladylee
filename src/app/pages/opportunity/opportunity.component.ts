@@ -42,9 +42,9 @@ export class OpportunityComponent implements OnInit {
 
 	edit() {
 		this.editedOpportunity = {
-			Opportunity_Name: this.selectedOpportunity.Opportunity_Name,
-			Close_Date: this.selectedOpportunity.Close_Date,
-			Id: this.selectedOpportunity.Id
+			Name: this.selectedOpportunity.Name,
+			CloseDate: this.selectedOpportunity.CloseDate,
+			OpportunityID: this.selectedOpportunity.OpportunityID
 		} as Opportunity;
 
 		this.editDialog = true;
@@ -67,16 +67,16 @@ export class OpportunityComponent implements OnInit {
 
 		let editModel: OpportunityEdit = {
 			data: {
-				Name: this.editedOpportunity.Opportunity_Name,
-				Close_Date: this.editedOpportunity.Close_Date
+				Name: this.editedOpportunity.Name,
+				Close_Date: this.editedOpportunity.CloseDate
 			},
-			opportunityId: this.editedOpportunity.Id
+			opportunityId: this.editedOpportunity.OpportunityID
 		}
 		this.updating = true;
 		this.apiService.updateOpportunity(editModel).subscribe((response) => {
 			if (response.status == 'Ok') {
-				this.selectedOpportunity.Opportunity_Name = this.editedOpportunity.Opportunity_Name;
-				this.selectedOpportunity.Close_Date = this.editedOpportunity.Close_Date;
+				this.selectedOpportunity.Name = this.editedOpportunity.Name;
+				this.selectedOpportunity.CloseDate = this.editedOpportunity.CloseDate;
 				this.editDialog = false;
 				this.viewDialog = true;
 				this.messageService.add({ severity: 'success', summary: 'Update opportunity is successful' });

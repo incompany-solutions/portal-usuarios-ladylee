@@ -8,6 +8,7 @@ import { Opportunity, OpportunityEdit } from '../model/opportunity'
 import { Lead, LeadEdit } from '../model/lead'
 import { GeneralResponse } from '../model/general-response';
 import { LeeTask } from '../model/lee-task';
+import { MessageService } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,7 @@ import { LeeTask } from '../model/lee-task';
 export class ApiService {
   constructor(
     private http: HttpClient,
+    private messageService: MessageService,
     private authService: AuthService) { }
 
 
@@ -35,11 +37,28 @@ export class ApiService {
     return this.http.post<Lead[]>(environment.urls.leads, { 'email': this.authService.userEmail }).pipe(catchError(this.handleError.bind(this)));
   }
 
-  updateLead(dataToUpdate: LeadEdit): Observable<GeneralResponse> {
-    dataToUpdate.email = this.authService.userEmail;
+  getLead(leadId: string): Observable<Lead[]> {
+    return this.http.post<Lead[]>(environment.urls.getlead,
+      {
+        'email': this.authService.userEmail,
+        'LeadId': leadId
+      }
+    )
+    .pipe(
+      catchError(this.handleError.bind(this))
+    );
+  }
+
+  updateLead(data: Lead, leadId: string): Observable<GeneralResponse> {
+    let editObj: LeadEdit = {
+      email: this.authService.userEmail,
+      leadId: leadId,
+      data: data
+    } as LeadEdit;
+
     return this.http.post<GeneralResponse>(
       environment.urls.updateLead,
-      dataToUpdate
+      editObj
     ).pipe(
       catchError(this.handleError.bind(this))
     );
@@ -76,6 +95,7 @@ export class ApiService {
   }
 
   handleError(httpErrorResponse: HttpErrorResponse) {
+    this.messageService.add({ severity: 'error', summary: httpErrorResponse.statusText });
     return throwError(httpErrorResponse);
   }
 

@@ -51,7 +51,7 @@ export class AuthService {
             if (response.status == 'Ok') {
               this.cookieService.set('access_token', token.access_token, { expires: 1 });
               this.cookieService.set('user_email', data.identity, { expires: 1 });
-              this.router.navigate(['/']);
+              this.router.navigate(['/leads']);
             }
             else {
               this.invalidLoginSubject.next();

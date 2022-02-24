@@ -1,0 +1,653 @@
+<div class="row" *ngIf="loading">
+  <div class="col text-center">
+    <p-progressSpinner [style]="{width: '50px', height: '50px'}"></p-progressSpinner>
+  </div>
+</div>
+<div class="row" *ngIf="!loading">
+  <div class="col-md-12 stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="row ">
+          <div class="col-sm-6">
+            <h3 class="card-title">Bienvenido Juan Robles</h3>
+            <h5 class="card-title">Editar de la Prospecto</h5>
+          </div><!-- Col -->
+          <div class="col-sm-6">
+            <p-progressSpinner  *ngIf="saving" [style]="{width: '20px', height: '20px'}"></p-progressSpinner>
+            <button type="button"  (click)="save()" class="btn btn-primary btn-xs ml-2">Guardar</button> 
+            <button type="button"   (click)="back()" class="btn btn-primary btn-xs">Volver</button>
+          </div><!-- Col -->
+        </div><!-- Row -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="!loading">
+  <div class="col-md-12 stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">INFORMACIÓN GENERAL</h6>
+        <div class="row">
+          <div class="col-sm-6 mb-3">
+            <label for="FullName" class="form-label">Nombre completo</label>
+            <input id="FullName" [ngModel]="selectedLead.FullName" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Nombre completo">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Company" class="form-label">Compañía</label>
+            <input id="Company" [ngModel]="selectedLead.Company" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Compañía">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Title" class="form-label">Cargo</label>
+            <input id="Title" [ngModel]="selectedLead.Title" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Cargo">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Status" class="form-label">Estado de prospecto</label>
+            <input id="Status" [ngModel]="selectedLead.Status" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Estado de prospecto">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="LeadSource" class="form-label">Origen del prospecto</label>
+            <input id="LeadSource" [ngModel]="selectedLead.LeadSource" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Origen del prospecto">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Description" class="form-label">Descripción</label>
+            <input id="Description" [ngModel]="selectedLead.Description" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Descripción">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="TiendadeInteres" class="form-label">Tienda de Interes</label>
+            <input id="TiendadeInteres" [ngModel]="selectedLead.TiendadeInteres" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Tienda de Interes">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Vendedor" class="form-label">Vendedor</label>
+            <input id="Vendedor" [ngModel]="selectedLead.Vendedor" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Vendedor">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Nombredelvendedor" class="form-label">Nombre del vendedor</label>
+            <input id="Nombredelvendedor" [ngModel]="selectedLead.Nombredelvendedor" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Nombre del vendedor">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Bur" class="form-label">Buró</label>
+            <input id="Bur" [ngModel]="selectedLead.Bur" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Buró">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="ResultadodeconsultaenBur" class="form-label">Resultado de consulta en Buró</label>
+            <input id="ResultadodeconsultaenBur" [ngModel]="selectedLead.ResultadodeconsultaenBur" type="text"
+              class="form-control" (change)="handleChange($event)" placeholder="Resultado de consulta en Buró">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Contadocrdito" class="form-label">Contado ó crédito</label>
+            <input id="Contadocrdito" [ngModel]="selectedLead.Contadocrdito" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Contado ó crédito">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="EstadoCrediLee" class="form-label">Estado Credi Lee</label>
+            <input id="EstadoCrediLee" [ngModel]="selectedLead.EstadoCrediLee" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Estado Credi Lee">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="UsuarioPortal" class="form-label">Usuario Portal</label>
+            <input id="UsuarioPortal" [ngModel]="selectedLead.UsuarioPortal" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Usuario Portal">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Tipodecasa" class="form-label">Tipo de casa</label>
+            <input id="Tipodecasa" [ngModel]="selectedLead.Tipodecasa" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Tipo de casa">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Rating" class="form-label">Rating</label>
+            <input id="Rating" [ngModel]="selectedLead.Rating" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Rating">
+          </div>
+        </div><!-- Row -->
+
+        <div class="row">
+          <div class="col-md-12 stretch-card grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">INFORMACIÓN DE CONTACTO</h6>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label for="Email" class="form-label">Correo electrónico</label>
+                    <input id="Email" [ngModel]="selectedLead.Email" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Correo electrónico">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="MobilePhone" class="form-label">Móvil</label>
+                    <input id="MobilePhone" [ngModel]="selectedLead.MobilePhone" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Móvil">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Phone" class="form-label">Teléfono</label>
+                    <input id="Phone" [ngModel]="selectedLead.Phone" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Teléfono">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Fax" class="form-label">Fax</label>
+                    <input id="Fax" [ngModel]="selectedLead.Fax" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Fax">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label class="form-label">Dirección</label>
+                    <input type="text" class="form-control" (change)="handleChange($event)" placeholder="Dirección">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="EmailOptOut" class="form-label">No recibir correos electrónicos</label>
+                    <input id="EmailOptOut" [ngModel]="selectedLead.EmailOptOut" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="No recibir correos electrónicos">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="DoNotCall" class="form-label">No llamar</label>
+                    <input id="DoNotCall" [ngModel]="selectedLead.DoNotCall" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="No llamar">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="FaxOptOut" class="form-label">No recibir fax</label>
+                    <input id="FaxOptOut" [ngModel]="selectedLead.FaxOptOut" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="No recibir fax">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Tipodeidentificacin" class="form-label">Tipo de identificación</label>
+                    <input id="Tipodeidentificacin" [ngModel]="selectedLead.Tipodeidentificacin" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Tipo de identificación">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Profesinuoficio" class="form-label">Profesión u oficio</label>
+                    <input id="Profesinuoficio" [ngModel]="selectedLead.Profesinuoficio" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Profesión u oficio">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Fechadenacimiento" class="form-label">Fecha de nacimiento</label>
+                    <input id="Fechadenacimiento" [ngModel]="selectedLead.Fechadenacimiento" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Fecha de nacimiento">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Estadocivil" class="form-label">Estado civil</label>
+                    <input id="Estadocivil" [ngModel]="selectedLead.Estadocivil" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Estado civil">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Ciudad" class="form-label">Ciudad</label>
+                    <input id="Ciudad" [ngModel]="selectedLead.Ciudad" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Ciudad">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Zona" class="form-label">Zona</label>
+                    <input id="Zona" [ngModel]="selectedLead.Zona" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Zona">
+                  </div>
+
+                  <div class="col-sm-6 mb-3">
+                    <label for="Direccindetrabajo" class="form-label">Dirección de trabajo</label>
+                    <input id="Direccindetrabajo" [ngModel]="selectedLead.Direccindetrabajo" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Dirección de trabajo">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Telefonodelaempresa" class="form-label">Telefono de la empresa</label>
+                    <input id="Telefonodelaempresa" [ngModel]="selectedLead.Telefonodelaempresa" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Telefono de la empresa">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Nombredereferenciafamiliar1" class="form-label">Nombre de referencia familiar 1</label>
+                    <input id="Nombredereferenciafamiliar1" [ngModel]="selectedLead.Nombredereferenciafamiliar1"
+                      type="text" class="form-control" (change)="handleChange($event)"
+                      placeholder="Nombre de referencia familiar 1">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Nombredereferenciafamiliar2" class="form-label">Nombre de referencia familiar 2</label>
+                    <input id="Nombredereferenciafamiliar2" [ngModel]="selectedLead.Nombredereferenciafamiliar2"
+                      type="text" class="form-control" (change)="handleChange($event)"
+                      placeholder="Nombre de referencia familiar 2">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Nombredereferenciaamistad1" class="form-label">Nombre de referencia amistad 1</label>
+                    <input id="Nombredereferenciaamistad1" [ngModel]="selectedLead.Nombredereferenciaamistad1"
+                      type="text" class="form-control" (change)="handleChange($event)"
+                      placeholder="Nombre de referencia amistad 1">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Nombredereferenciaamistad2" class="form-label">Nombre de referencia amistad 2</label>
+                    <input id="Nombredereferenciaamistad2" [ngModel]="selectedLead.Nombredereferenciaamistad2"
+                      type="text" class="form-control" (change)="handleChange($event)"
+                      placeholder="Nombre de referencia amistad 2">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Fotodelprospecto" class="form-label">Foto del prospecto</label>
+                    <input id="Fotodelprospecto" [ngModel]="selectedLead.Fotodelprospecto" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Foto del prospecto">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Identidad" class="form-label">Identidad</label>
+                    <input id="Identidad" [ngModel]="selectedLead.Identidad" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Identidad">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Sexo" class="form-label">Sexo</label>
+                    <input id="Sexo" [ngModel]="selectedLead.Sexo" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Sexo">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Nmerodedependientes" class="form-label">Número de dependientes</label>
+                    <input id="Nmerodedependientes" [ngModel]="selectedLead.Nmerodedependientes" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Número de dependientes">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Departamento" class="form-label">Departamento</label>
+                    <input id="Departamento" [ngModel]="selectedLead.Departamento" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Departamento">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Direccincompleta" class="form-label">Dirección completa</label>
+                    <input id="Direccincompleta" [ngModel]="selectedLead.Direccincompleta" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Dirección completa">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Antigedaddedomiciliciliomeses" class="form-label">Antigüedad de domicilicilio
+                      (meses)</label>
+                    <input id="Antigedaddedomiciliciliomeses" [ngModel]="selectedLead.Antigedaddedomiciliciliomeses"
+                      type="text" class="form-control" (change)="handleChange($event)"
+                      placeholder="Antigüedad de domicilicilio (meses)">
+                  </div>
+
+
+                  <div class="col-sm-6 mb-3">
+                    <label for="Antigedadlaboralmeses" class="form-label">Antigüedad laboral (meses)</label>
+                    <input id="Antigedadlaboralmeses" [ngModel]="selectedLead.Antigedadlaboralmeses" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Antigüedad laboral (meses)">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Ingresosmensual" class="form-label">Ingresos mensual</label>
+                    <input id="Ingresosmensual" [ngModel]="selectedLead.Ingresosmensual" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Ingresos mensual">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Celulardereferenciafamiliar1" class="form-label">Celular de referencia familiar
+                      1</label>
+                    <input id="Celulardereferenciafamiliar1" [ngModel]="selectedLead.Celulardereferenciafamiliar1"
+                      type="text" class="form-control" (change)="handleChange($event)"
+                      placeholder="Celular de referencia familiar 1">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Celulardereferenciaamistad1" class="form-label">Celular de referencia amistad 1</label>
+                    <input id="Celulardereferenciaamistad1" [ngModel]="selectedLead.Celulardereferenciaamistad1"
+                      type="text" class="form-control" (change)="handleChange($event)"
+                      placeholder="Celular de referencia amistad 1">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Celulardereferenciafamiliar2" class="form-label">Celular de referencia familiar
+                      2</label>
+                    <input id="Celulardereferenciafamiliar2" [ngModel]="selectedLead.Celulardereferenciafamiliar2"
+                      type="text" class="form-control" (change)="handleChange($event)"
+                      placeholder="Celular de referencia familiar 2">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Celulardereferenciaamistad2" class="form-label">Celular de referencia amistad 2</label>
+                    <input id="Celulardereferenciaamistad2" [ngModel]="selectedLead.Celulardereferenciaamistad2"
+                      type="text" class="form-control" (change)="handleChange($event)"
+                      placeholder="Celular de referencia amistad 2">
+                  </div>
+                </div><!-- Row -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-12 stretch-card grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">ANÁLISIS DE CRÉDITO</h6>
+                <div class="row">
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <label for="Estadodelcrdito" class="form-label">Estado del crédito</label>
+                    <input id="Estadodelcrdito" [ngModel]="selectedLead.Estadodelcrdito" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Estado del crédito">
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <label for="FechadeAprobacion" class="form-label">Fecha de Aprobacion</label>
+                    <input id="FechadeAprobacion" [ngModel]="selectedLead.FechadeAprobacion" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Fecha de Aprobacion">
+
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input id="IdentidadSegunda" [checked]="selectedLead.IdentidadSegunda=='true'"
+                        class="form-check-input" type="checkbox" value="">
+                      <label for="IdentidadSegunda" class="form-check-label">
+                        Identidad Segunda
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.RTN=='true'" type="checkbox" value="" id="RTN">
+                      <label class="form-check-label" for="RTN">
+                        RTN
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.VerificacionCampoTrabajo=='true'" type="checkbox" value=""
+                        id="VerificacionCampoTrabajo">
+                      <label class="form-check-label" for="VerificacionCampoTrabajo">
+                        Verificacion Campo Trabajo
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.Pendientefirmaensol=='true'" type="checkbox" value=""
+                        id="Pendientefirmaensol">
+                      <label class="form-check-label" for="Pendientefirmaensol">
+                        Pendiente firma en sol
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.PolizadeSeguro=='true'" type="checkbox" value="" id="PolizadeSeguro">
+                      <label class="form-check-label" for="PolizadeSeguro">
+                        Poliza de Seguro
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      checked value="" id="ConstanciaIdentidad">
+                      <label class="form-check-label" for="ConstanciaIdentidad">
+                        Constancia Identidad
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.Confirmaciontelefonomovil=='true'" type="checkbox" value=""
+                        id="Confirmaciontelefonomovil">
+                      <label class="form-check-label" for="Confirmaciontelefonomovil">
+                        Confirmacion telefono movil
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.Aval=='true'" type="checkbox" value="" id="Aval">
+                      <label class="form-check-label" for="Aval">
+                        Aval
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.Confirmaciontelefonicalaboral=='true'" type="checkbox" value=""
+                        id="Confirmaciontelefonicalaboral">
+                      <label class="form-check-label" for="Confirmaciontelefonicalaboral">
+                        Confirmacion telefonica laboral
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.Domiciliocroquis=='true'" type="checkbox" value=""
+                        id="Domiciliocroquis">
+                      <label class="form-check-label" for="Domiciliocroquis">
+                        Domicilio croquis
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.ContratoCompraVenta=='true'" type="checkbox" value=""
+                        id="ContratoCompraVenta">
+                      <label class="form-check-label" for="ContratoCompraVenta">
+                        Contrato Compra Venta
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.PermisoOperacion=='true'" type="checkbox" value=""
+                        id="PermisoOperacion">
+                      <label class="form-check-label" for="PermisoOperacion">
+                        Permiso Operacion
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <label for="Validacionesdelcrdito" class="form-label">Validaciones del crédito</label>
+                    <input id="Validacionesdelcrdito" [ngModel]="selectedLead.Validacionesdelcrdito" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Validaciones del crédito">
+
+                  </div>
+
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <label for="FechaVencimientoCrdito" class="form-label">Fecha Vencimiento Crédito</label>
+                    <input id="FechaVencimientoCrdito" [ngModel]="selectedLead.FechaVencimientoCrdito" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Fecha Vencimiento Crédito">
+
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.RefFamiliarNoResponde=='true'" type="checkbox"
+                        id="RefFamiliarNoResponde">
+                      <label class="form-check-label" for="RefFamiliarNoResponde">
+                        Ref. Familiar No Responde
+                      </label>
+                    </div>
+
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.Carnetdetrabajo=='true'" type="checkbox" value="" id="Carnetdetrabajo">
+                      <label class="form-check-label" for="Carnetdetrabajo">
+                        Carnet de trabajo
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.TrabajoCroquis=='true'" type="checkbox" value="" id="TrabajoCroquis">
+                      <label class="form-check-label" for="TrabajoCroquis">
+                        Trabajo Croquis
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.Recibopublico=='true'" type="checkbox" value="" id="Recibopublico">
+                      <label class="form-check-label" for="Recibopublico">
+                        Recibo publico
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.RefAmistadNoResponde=='true'" type="checkbox" value=""
+                        id="RefAmistadNoResponde">
+                      <label class="form-check-label" for="RefAmistadNoResponde">
+                        Ref. Amistad No Responde
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.ActualizaciondeDatos=='true'" type="checkbox" value=""
+                        id="ActualizaciondeDatos">
+                      <label class="form-check-label" for="ActualizaciondeDatos">
+                        Actualizacion de Datos
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.CambiarReferencia=='true'" type="checkbox" value=""
+                        id="CambiarReferencia">
+                      <label class="form-check-label" for="CambiarReferencia">
+                        Cambiar Referencia
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.ComprobantedeIngreso=='true'" type="checkbox" value=""
+                        id="ComprobantedeIngreso">
+                      <label class="form-check-label" for="ComprobantedeIngreso">
+                        Comprobante de Ingreso
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.VerificacionCampoDomicilio=='true'" type="checkbox" value=""
+                        id="VerificacionCampoDomicilio">
+                      <label class="form-check-label" for="VerificacionCampoDomicilio">
+                        Verificacion Campo Domicilio
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.CarnetEscalafon=='true'" type="checkbox" value="" id="CarnetEscalafon">
+                      <label class="form-check-label" for="CarnetEscalafon">
+                        Carnet Escalafon
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.ContratoArrendamiento=='true'" type="checkbox" value=""
+                        id="ContratoArrendamiento">
+                      <label class="form-check-label" for="ContratoArrendamiento">
+                        Contrato Arrendamiento
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4 col-lg-3  mb-3">
+                    <div class="form-check">
+                      <input class="form-check-input" (change)="handleChange($event)"
+                        [checked]="selectedLead.Solicituddecredito=='true'" type="checkbox" value=""
+                        id="Solicituddecredito">
+                      <label class="form-check-label" for="Solicituddecredito">
+                        Solicitud de credito
+                      </label>
+                    </div>
+                  </div>
+
+                </div><!-- Row -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 stretch-card grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">RAZÓN DEL PROCESO DE ANÁLISIS</h6>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label for="Razn" class="form-label">Razón</label>
+                    <input id="Razn" [ngModel]="selectedLead.Razn" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Razón">
+                  </div>
+                </div><!-- Row -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 stretch-card grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">INFORMACIÓN ADICIONAL</h6>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label for="AnnualRevenue" class="form-label">Ingresos anuales</label>
+                    <input id="AnnualRevenue" [ngModel]="selectedLead.AnnualRevenue" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Ingresos anuales">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Employees" class="form-label">Número de empleados</label>
+                    <input id="Employees" [ngModel]="selectedLead.Employees" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Número de empleados">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Industry" class="form-label">Sector</label>
+                    <input id="Industry" [ngModel]="selectedLead.Industry" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Sector">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Website" class="form-label">Sitio Web</label>
+                    <input id="Website" [ngModel]="selectedLead.Website" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Sitio Web">
+                  </div>
+
+                </div><!-- Row -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 stretch-card grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">INFORMACIÓN DEL SISTEMA</h6>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label for="CreatedByID" class="form-label">Creado por</label>
+                    <input id="CreatedByID" [ngModel]="selectedLead.CreatedByID" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Creado por">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="LastModifiedByID" class="form-label">Modificado por</label>
+                    <input id="LastModifiedByID" [ngModel]="selectedLead.LastModifiedByID" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Modificado por">
+                  </div>
+                </div><!-- Row -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" (click)="save()" class="btn btn-primary submit">Guardar</button><br><br>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -110,10 +110,12 @@ import { OpportunityComponent } from './pages/opportunity/opportunity.component'
 import { LeadComponent } from './pages/lead/lead.component';
 import { ContactComponent } from './pages/contact/contact.component';
 
+import { LeadViewComponent } from './pages/lead/view.component';
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { LeadEditComponent } from './pages/lead/edit.component';
 
 
 @NgModule({
@@ -217,7 +219,9 @@ import { far } from '@fortawesome/free-regular-svg-icons';
     LoginComponent,
     OpportunityComponent,
     LeadComponent,
-    ContactComponent
+    ContactComponent,
+    LeadViewComponent,
+    LeadEditComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

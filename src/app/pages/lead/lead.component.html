@@ -1,55 +1,59 @@
-<div class="p-grid">
-  <div class="p-col-12">
-
-
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
     <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Lista de Prospectos</h6>
+        <p-table #dt [value]="leads" [rows]="10" [paginator]="true" [rowHover]="true" dataKey="id" [loading]="loading"
+          styleClass="p-datatable-customers"
+          currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+          [showCurrentPageReport]="true"
+          [globalFilterFields]="['Status','LeadSource','Industry','Rating']" >
+          <ng-template pTemplate="caption">
+            <div class="table-header d-flex justify-content-end">
+              <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                  placeholder="Buscar" />
+              </span>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="Status">Estado del prospecto <p-sortIcon field="Status"></p-sortIcon>
+              </th>
+              <th pSortableColumn="LeadSource">Origen del prospecto <p-sortIcon field="LeadSource"></p-sortIcon>
+              </th>
+              <th pSortableColumn="Industry">Sector <p-sortIcon field="Industry"></p-sortIcon>
+              </th>
+              <th pSortableColumn="Rating">Valoración <p-sortIcon field="Rating"></p-sortIcon>
+              </th>
 
-      <p-table #dt [value]="leads" [rows]="10" [paginator]="true" [rowHover]="true" dataKey="id" [loading]="loading"
-        styleClass="p-datatable-customers"
-        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
-        [showCurrentPageReport]="true">
-        <ng-template pTemplate="caption">
-          <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between table-header">
-            <h5 class="p-m-0">Prospectos</h5>
-            <!-- <button pButton pRipple label="Nuevo record" icon="pi pi-plus" class="p-button-success p-mr-2 p-mb-2"
-            (click)="openNew()"></button> -->
-          </div>
-        </ng-template>
-        <ng-template pTemplate="header">
-          <tr>
-            <th pSortableColumn="Status">Estado del prospecto <p-sortIcon field="Status"></p-sortIcon>
-            </th>
-            <th pSortableColumn="LeadSource">Origen del prospecto <p-sortIcon field="LeadSource"></p-sortIcon>
-            </th>
-            <th pSortableColumn="Industry">Sector <p-sortIcon field="Industry"></p-sortIcon>
-            </th>
-            <th pSortableColumn="Rating">Valoración <p-sortIcon field="Rating"></p-sortIcon>
-            </th>
+              <th>Acciones</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-lead>
+            <tr>
+              <td>
+                {{lead.Status}}
+              </td>
+              <td>
+                {{lead.LeadSource}}
+              </td>
+              <td>
+                {{lead.Industry}}
+              </td>
+              <td>
+                {{lead.Rating}}
+              </td>
+              <td>
+                <button pButton pRipple class="btn btn-primary btn-xs"  [routerLink]="['/viewlead', lead.LeadID]">Ver</button>
+                <button pButton pRipple class="btn btn-primary btn-xs" (click)="addTask(lead)">Agregar Tarea</button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
 
-            <th></th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-lead>
-          <tr>
-            <td>
-              {{lead.Status}}
-            </td>
-            <td>
-              {{lead.LeadSource}}
-            </td>
-            <td>
-              {{lead.Industry}}
-            </td>
-            <td>
-              {{lead.Rating}}
-            </td>
-            <td>
-              <button pButton pRipple class="p-button-rounded p-button-success p-mr-2"
-                (click)="view(lead)">Ver</button>
-            </td>
-          </tr>
-        </ng-template>
-      </p-table>
     </div>
 
 
@@ -61,11 +65,11 @@
         <div class="card">
           <div class="p-fluid p-formgrid p-grid">
             <div class="p-field p-col-12 p-md-6">
-              <label >Company</label>
+              <label>Company</label>
               <input [(ngModel)]="editedLead.Company" type="text" pInputText>
             </div>
             <div class="p-field p-col-12 p-md-6">
-              <label >Title</label>
+              <label>Title</label>
               <input [(ngModel)]="editedLead.Title" type="text" pInputText>
             </div>
 
