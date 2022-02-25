@@ -9,6 +9,7 @@ export const environment = {
     token: 'https://us-central1-ladylee-angular.cloudfunctions.net/app/getToken',
     login: '/api/login',
     opportunities: '/api/opportunities',
+    getOpportunity: '/api/getOpportunity',
     updateOpportunity: '/api/updateOpportunity',
     leads: '/api/leads',
     getlead: '/api/getlead',

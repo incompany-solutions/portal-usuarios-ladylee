@@ -47,8 +47,8 @@
                 {{opportunity.ForecastCategory}}
               </td>
               <td>
-                <button pButton pRipple class="btn btn-primary btn-xs" (click)="view(opportunity)">Ver</button>
-                <button pButton pRipple class="btn btn-primary btn-xs" (click)="addTask(opportunity)">Agregar Tarea</button>
+                <button pButton pRipple class="btn btn-primary btn-xs"  [routerLink]="['/viewopportunity', opportunity.OpportunityID]">Ver</button>
+                <button pButton pRipple class="btn btn-primary btn-xs"  [routerLink]="['/savetask', opportunity.OpportunityID]">Agregar Tarea</button>
               </td>
             </tr>
           </ng-template>

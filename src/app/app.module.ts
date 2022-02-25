@@ -51,6 +51,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { LeadEditComponent } from './pages/lead/edit.component';
 import { SaveTaskComponent } from './pages/savetask/savetask.component';
+import { OpportunityViewComponent } from './pages/opportunity/view.component';
+import { OpportunityEditComponent } from './pages/opportunity/edit.component';
 
 
 @NgModule({
@@ -92,7 +94,9 @@ import { SaveTaskComponent } from './pages/savetask/savetask.component';
     ContactComponent,
     LeadViewComponent,
     LeadEditComponent,
-    SaveTaskComponent
+    SaveTaskComponent,
+    OpportunityViewComponent,
+    OpportunityEditComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

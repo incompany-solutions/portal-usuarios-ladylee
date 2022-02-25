@@ -12,7 +12,15 @@
         "secure": true,
         "changeOrigin": true,
         "pathRewrite": {
-            "^/api/login": ""
+            "^/api/opportunities": ""
+        }
+    },
+    "/api/getOpportunity": {
+        "target": "https://ladylee--partialqa.my.salesforce.com/services/apexrest/GetOpportunity",
+        "secure": true,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api/getOpportunity": ""
         }
     },
     "/api/leads": {

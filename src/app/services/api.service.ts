@@ -23,11 +23,29 @@ export class ApiService {
   getOpportunities(): Observable<Opportunity[]> {
     return this.http.post<Opportunity[]>(environment.urls.opportunities, { 'email': this.authService.userEmail }).pipe(catchError(this.handleError.bind(this)));
   }
-  updateOpportunity(dataToUpdate: OpportunityEdit): Observable<GeneralResponse> {
-    dataToUpdate.email = this.authService.userEmail;
+
+  getOpportunity(opportunityId: string): Observable<Opportunity[]> {
+    return this.http.post<Opportunity[]>(environment.urls.getOpportunity,
+      {
+        'email': this.authService.userEmail,
+        'opportunityId': opportunityId
+      }
+    )
+      .pipe(
+        catchError(this.handleError.bind(this))
+      );
+  }
+
+  updateOpportunity(data: Opportunity, opportunityId: string): Observable<GeneralResponse> {
+    let editObj: OpportunityEdit = {
+      email: this.authService.userEmail, 
+      opportunityId: opportunityId,
+      data: data
+    } as OpportunityEdit;
+
     return this.http.post<GeneralResponse>(
       environment.urls.updateOpportunity,
-      dataToUpdate
+      editObj
     ).pipe(
       catchError(this.handleError.bind(this))
     );

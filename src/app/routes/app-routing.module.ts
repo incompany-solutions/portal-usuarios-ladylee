@@ -12,6 +12,8 @@ import { LeadViewComponent } from '../pages/lead/view.component';
 import { ContactComponent } from '../pages/contact/contact.component';
 import { LeadEditComponent } from '../pages/lead/edit.component';
 import { SaveTaskComponent } from '../pages/savetask/savetask.component';
+import { OpportunityViewComponent } from '../pages/opportunity/view.component';
+import { OpportunityEditComponent } from '../pages/opportunity/edit.component';
 
 
 
@@ -62,6 +64,16 @@ import { SaveTaskComponent } from '../pages/savetask/savetask.component';
             {
               path: 'contacts',
               component: ContactComponent,
+              canActivate: [AuthGuard]
+            },
+            {
+              path: 'viewopportunity/:id',
+              component: OpportunityViewComponent,
+              canActivate: [AuthGuard]
+            },
+            {
+              path: 'editopportunity/:id',
+              component: OpportunityEditComponent,
               canActivate: [AuthGuard]
             }
           ],

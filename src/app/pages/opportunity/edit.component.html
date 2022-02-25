@@ -1,0 +1,285 @@
+<div class="row" *ngIf="loading">
+  <div class="col text-center">
+    <p-progressSpinner [style]="{width: '50px', height: '50px'}"></p-progressSpinner>
+  </div>
+</div>
+<div class="row" *ngIf="!loading">
+  <div class="col-md-12 stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <div class="row ">
+          <div class="col-sm-6">
+            <h3 class="card-title">Bienvenido Juan Robles</h3>
+            <h5 class="card-title">Editar de la Prospecto</h5>
+          </div><!-- Col -->
+          <div class="col-sm-6">
+            <p-progressSpinner *ngIf="saving" [style]="{width: '20px', height: '20px', marginBottom: '-7px'}">
+            </p-progressSpinner>
+            <button type="button" (click)="save()" class="btn btn-primary btn-xs ml-2">Guardar</button>
+            <button type="button" (click)="back()" class="btn btn-primary btn-xs">Volver</button>
+          </div><!-- Col -->
+        </div><!-- Row -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" *ngIf="!loading">
+  <div class="col-md-12 stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">INFORMACIÓN GENERAL</h6>
+        <div class="row">
+          <div class="col-sm-6 mb-3">
+            <label for="Name" class="form-label">Nombre de la oportunidad</label>
+            <input id="Name" [ngModel]="selectedOpportunity.Name" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Nombre de la oportunidad">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="AccountID" class="form-label">Nombre de la cuenta</label>
+            <input id="AccountID" [ngModel]="selectedOpportunity.AccountID" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Nombre de la cuenta">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Description" class="form-label">Descripción</label>
+            <input id="Description" [ngModel]="selectedOpportunity.Description" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Descripción">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Stage" class="form-label">Etapa</label>
+            <input id="Stage" [ngModel]="selectedOpportunity.Stage" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Etapa">
+          </div>
+          
+          <div class="col-sm-6 mb-3">
+            <label for="CloseDate" class="form-label">Fecha de cierre</label>
+            <input id="CloseDate" [ngModel]="selectedOpportunity.CloseDate" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Fecha de cierre">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="ExpectedAmount" class="form-label">Ingresos previstos</label>
+            <input id="ExpectedAmount" [ngModel]="selectedOpportunity.ExpectedAmount" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Ingresos previstos">
+          </div>
+          
+          <div class="col-sm-6 mb-3">
+            <label for="CampaignID" class="form-label">Origen de la campaña principal</label>
+            <input id="CampaignID" [ngModel]="selectedOpportunity.CampaignID" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Origen de la campaña principal">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="LeadSource" class="form-label">Origen del prospecto</label>
+            <input id="LeadSource" [ngModel]="selectedOpportunity.LeadSource" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Origen del prospecto">
+          </div>
+          
+          <div class="col-sm-6 mb-3">
+            <label for="OpportunityType" class="form-label"></label>
+            <input id="OpportunityType" [ngModel]="selectedOpportunity.OpportunityType" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="NombreCompleto" class="form-label">Nombre completo</label>
+            <input id="NombreCompleto" [ngModel]="selectedOpportunity.NombreCompleto" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Nombre completo">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Identificacion" class="form-label">Identificacion</label>
+            <input id="Identificacion" [ngModel]="selectedOpportunity.Identificacion" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Identificacion">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input id="Email" [ngModel]="selectedOpportunity.Email" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Email">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Telefono" class="form-label">Telefono</label>
+            <input id="Telefono" [ngModel]="selectedOpportunity.Telefono" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Telefono">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="CodigoVendedor" class="form-label">Codigo Vendedor</label>
+            <input id="CodigoVendedor" [ngModel]="selectedOpportunity.CodigoVendedor" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Codigo Vendedor">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Prospecto" class="form-label">Prospecto</label>
+            <input id="Prospecto" [ngModel]="selectedOpportunity.Prospecto" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Prospecto">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="MontoPrima" class="form-label">Monto Prima</label>
+            <input id="MontoPrima" [ngModel]="selectedOpportunity.MontoPrima" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Monto Prima">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="MontoFinanciammiento" class="form-label">Monto Financiammiento</label>
+            <input id="MontoFinanciammiento" [ngModel]="selectedOpportunity.MontoFinanciammiento" type="text"
+              class="form-control" (change)="handleChange($event)" placeholder="Monto Financiammiento">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Plazo" class="form-label">Plazo</label>
+            <input id="Plazo" [ngModel]="selectedOpportunity.Plazo" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Plazo">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Cuota" class="form-label">Cuota</label>
+            <input id="Cuota" [ngModel]="selectedOpportunity.Cuota" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Cuota">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="FrecuenciaPago" class="form-label">Frecuencia Pago</label>
+            <input id="FrecuenciaPago" [ngModel]="selectedOpportunity.FrecuenciaPago" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Frecuencia Pago">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Tiendadepreferencia" class="form-label">Tienda de preferencia</label>
+            <input id="Tiendadepreferencia" [ngModel]="selectedOpportunity.Tiendadepreferencia" type="text"
+              class="form-control" (change)="handleChange($event)" placeholder="Tienda de preferencia">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="Nombredelvendedor" class="form-label">Nombre del vendedor</label>
+            <input id="Nombredelvendedor" [ngModel]="selectedOpportunity.Nombredelvendedor" type="text"
+              class="form-control" (change)="handleChange($event)" placeholder="Nombre del vendedor">
+          </div>
+          <div class="col-sm-6 mb-3">
+            <label for="UsuarioPortal" class="form-label">Usuario Portal</label>
+            <input id="UsuarioPortal" [ngModel]="selectedOpportunity.UsuarioPortal" type="text" class="form-control"
+              (change)="handleChange($event)" placeholder="Usuario Portal">
+          </div>
+        </div><!-- Row -->
+
+        <div class="row">
+          <div class="col-md-12 stretch-card grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">CONTACTACIÓN</h6>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label for="Estadodecontactacin" class="form-label">Estado de contactación</label>
+                    <input id="Estadodecontactacin" [ngModel]="selectedOpportunity.Estadodecontactacin" type="text"
+                      class="form-control" (change)="handleChange($event)" placeholder="Estado de contactación">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Observaciones" class="form-label">Observaciones</label>
+                    <input id="Observaciones" [ngModel]="selectedOpportunity.Observaciones" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Observaciones">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Probability" class="form-label">Probability (%)</label>
+                    <input id="Probability" [ngModel]="selectedOpportunity.Probability" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Probability (%)">
+                  </div>
+
+                </div><!-- Row -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-12 stretch-card grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">COTIZACIÓN</h6>
+                <div class="row">
+                  <div class="col-sm-6 mb-3">
+                    <label for="EstadodeCotizacin" class="form-label">Estado de Cotización</label>
+                    <input id="EstadodeCotizacin" [ngModel]="selectedOpportunity.EstadodeCotizacin" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Estado de Cotización">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Amount" class="form-label">Amount</label>
+                    <input id="Amount" [ngModel]="selectedOpportunity.Amount" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Amount">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Montofinal" class="form-label">Monto final</label>
+                    <input id="Montofinal" [ngModel]="selectedOpportunity.Montofinal" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Monto final">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Impuestos" class="form-label">Impuestos</label>
+                    <input id="Impuestos" [ngModel]="selectedOpportunity.Impuestos" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Impuestos">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="Descuento" class="form-label">Descuento</label>
+                    <input id="Descuento" [ngModel]="selectedOpportunity.Descuento" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Descuento">
+                  </div>
+
+                </div><!-- Row -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+
+        <div class="row">
+          <div class="col-md-12 stretch-card grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">FACTURACION</h6>
+                <div class="row">
+                 
+                  <div class="col-sm-6 mb-3">
+                    <label for="Formadepago" class="form-label">Forma de pago</label>
+                    <input id="Formadepago" [ngModel]="selectedOpportunity.Formadepago" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Forma de pago">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="NumerodeFactura" class="form-label">Número de factura</label>
+                    <input id="NumerodeFactura" [ngModel]="selectedOpportunity.NumerodeFactura" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Número de factura">
+                  </div>
+
+                </div><!-- Row -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 stretch-card grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h6 class="card-title">INFORMACIÓN DEL SISTEMA</h6>
+                <div class="row">
+                 
+                  <div class="col-sm-6 mb-3">
+                    <label for="CreatedByID" class="form-label">Creado por</label>
+                    <input id="CreatedByID" [ngModel]="selectedOpportunity.CreatedByID" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Creado por">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="OwnerID" class="form-label">Propietario de oportunidad</label>
+                    <input id="OwnerID" [ngModel]="selectedOpportunity.OwnerID" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Propietario de oportunidad">
+                  </div>
+                  <div class="col-sm-6 mb-3">
+                    <label for="LastModifiedByID" class="form-label">Last Modified By</label>
+                    <input id="LastModifiedByID" [ngModel]="selectedOpportunity.LastModifiedByID" type="text" class="form-control"
+                      (change)="handleChange($event)" placeholder="Last Modified By">
+                  </div>
+
+                </div><!-- Row -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <button type="button" (click)="save()" class="btn btn-primary submit">Guardar</button><br><br>
+        <p-progressSpinner *ngIf="saving" [style]="{width: '20px', height: '20px', marginBottom: '-10px'}">
+        </p-progressSpinner>
+
+
+      </div>
+    </div>
+  </div>
+</div>

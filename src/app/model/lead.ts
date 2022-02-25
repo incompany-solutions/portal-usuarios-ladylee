@@ -126,9 +126,5 @@ export interface Lead {
 export interface LeadEdit {
     email?: string;
     leadId: string;
-    data: LeadEditData;
-}
-export interface LeadEditData {
-    Company: string;
-    Title?: string;
+    data: Lead;
 }
