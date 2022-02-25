@@ -13,7 +13,7 @@
             <h5 class="card-title">Editar de la Prospecto</h5>
           </div><!-- Col -->
           <div class="col-sm-6">
-            <p-progressSpinner  *ngIf="saving" [style]="{width: '20px', height: '20px'}"></p-progressSpinner>
+            <p-progressSpinner *ngIf="saving" [style]="{width: '20px', height: '20px', marginBottom: '-7px'}"></p-progressSpinner>
             <button type="button"  (click)="save()" class="btn btn-primary btn-xs ml-2">Guardar</button> 
             <button type="button"   (click)="back()" class="btn btn-primary btn-xs">Volver</button>
           </div><!-- Col -->
@@ -644,7 +644,7 @@
         </div>
 
         <button type="button" (click)="save()" class="btn btn-primary submit">Guardar</button><br><br>
-
+        <p-progressSpinner *ngIf="saving" [style]="{width: '20px', height: '20px', marginBottom: '-10px'}"></p-progressSpinner>
 
 
       </div>

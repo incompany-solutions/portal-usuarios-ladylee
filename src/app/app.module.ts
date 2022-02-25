@@ -50,6 +50,7 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { LeadEditComponent } from './pages/lead/edit.component';
+import { SaveTaskComponent } from './pages/savetask/savetask.component';
 
 
 @NgModule({
@@ -90,7 +91,8 @@ import { LeadEditComponent } from './pages/lead/edit.component';
     LeadComponent,
     ContactComponent,
     LeadViewComponent,
-    LeadEditComponent
+    LeadEditComponent,
+    SaveTaskComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

@@ -44,9 +44,9 @@ export class ApiService {
         'LeadId': leadId
       }
     )
-    .pipe(
-      catchError(this.handleError.bind(this))
-    );
+      .pipe(
+        catchError(this.handleError.bind(this))
+      );
   }
 
   updateLead(data: Lead, leadId: string): Observable<GeneralResponse> {
@@ -80,8 +80,8 @@ export class ApiService {
      *
      * @return  An `Observable` of the `GeneralResponse`
      */
-  createTask(id: string, task: LeeTask): Observable<GeneralResponse> {
-    return this.http.post<Lead[]>(environment.urls.createTask, { 'Id': id, data: task }).pipe(catchError(this.handleError.bind(this)));
+  createTask(whoId: string, task: LeeTask): Observable<GeneralResponse> {
+    return this.http.post<Lead[]>(environment.urls.createTask, { 'Id': whoId, data: task }).pipe(catchError(this.handleError.bind(this)));
   }
 
   /**
@@ -90,8 +90,8 @@ export class ApiService {
      *
      * @return  An `Observable` of the `GeneralResponse`
      */
-  updateTask(id: string, task: LeeTask): Observable<GeneralResponse> {
-    return this.http.post<Lead[]>(environment.urls.updateTask, { 'Id': id, data: task }).pipe(catchError(this.handleError.bind(this)));
+  updateTask(taskId: string, task: LeeTask): Observable<GeneralResponse> {
+    return this.http.post<Lead[]>(environment.urls.updateTask, { 'Id': taskId, data: task }).pipe(catchError(this.handleError.bind(this)));
   }
 
   handleError(httpErrorResponse: HttpErrorResponse) {

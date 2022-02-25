@@ -11,6 +11,7 @@ import { LeadComponent } from '../pages/lead/lead.component';
 import { LeadViewComponent } from '../pages/lead/view.component';
 import { ContactComponent } from '../pages/contact/contact.component';
 import { LeadEditComponent } from '../pages/lead/edit.component';
+import { SaveTaskComponent } from '../pages/savetask/savetask.component';
 
 
 
@@ -46,6 +47,16 @@ import { LeadEditComponent } from '../pages/lead/edit.component';
             {
               path: 'editlead/:id',
               component: LeadEditComponent,
+              canActivate: [AuthGuard]
+            },
+            {
+              path: 'savetask/:whoid/:taskid',
+              component: SaveTaskComponent,
+              canActivate: [AuthGuard]
+            },
+            {
+              path: 'savetask/:whoid',
+              component: SaveTaskComponent,
               canActivate: [AuthGuard]
             },
             {

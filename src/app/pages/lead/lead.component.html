@@ -47,7 +47,7 @@
               </td>
               <td>
                 <button pButton pRipple class="btn btn-primary btn-xs"  [routerLink]="['/viewlead', lead.LeadID]">Ver</button>
-                <button pButton pRipple class="btn btn-primary btn-xs" (click)="addTask(lead)">Agregar Tarea</button>
+                <button pButton pRipple class="btn btn-primary btn-xs" [routerLink]="['/savetask', lead.LeadID]">Agregar Tarea</button>
               </td>
             </tr>
           </ng-template>

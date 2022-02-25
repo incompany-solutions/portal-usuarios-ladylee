@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { Lead, LeadEdit } from '../../model/lead';
+import { LeeTask } from '../../model/lee-task';
 import { ApiService } from '../../services/api.service';
 
 
@@ -15,6 +16,7 @@ export class LeadViewComponent implements OnInit {
 	editModel: Lead;
 	leadId: string;	
 	loading: boolean=true;
+	tasks: LeeTask[]=[];
 
 	constructor(private confirmationService: ConfirmationService,
 		private router: Router,
@@ -26,16 +28,22 @@ export class LeadViewComponent implements OnInit {
 
 	ngOnInit() {
 		this.leadId = this.route.snapshot.paramMap.get('id');
-		console.log(this.leadId);
 		
 		let leadSubscription=this.apiService.getLead(this.leadId).subscribe(result=>{
 			this.selectedLead=result[0];
 			this.loading=false;
 			leadSubscription.unsubscribe();
-			console.log("RefFamiliarNoResponde", this.selectedLead.RefFamiliarNoResponde);
+			this.listTasks(this.selectedLead.LeadID);
 		});
 
 		this.editModel = {} as Lead;
+	}
+
+	listTasks(leadId){
+		let taskSubscription=this.apiService.getTasks(leadId).subscribe(result=>{
+			this.tasks=result;
+			taskSubscription.unsubscribe();
+		});
 	}
 
 }

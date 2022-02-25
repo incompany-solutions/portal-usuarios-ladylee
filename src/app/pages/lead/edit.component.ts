@@ -27,13 +27,11 @@ export class LeadEditComponent implements OnInit {
 
 	ngOnInit() {
 		this.leadId = this.route.snapshot.paramMap.get('id');
-		console.log(this.leadId);
 
 		let leadSubscription = this.apiService.getLead(this.leadId).subscribe(result => {
 			this.selectedLead = result[0];
 			this.loading = false;
 			leadSubscription.unsubscribe();
-			console.log("RefFamiliarNoResponde", this.selectedLead.RefFamiliarNoResponde);
 		});
 
 		this.editModel = {} as Lead;
@@ -62,11 +60,12 @@ export class LeadEditComponent implements OnInit {
 			return;
 		}
 
-		this.saving=true;
+		this.saving = true;
+
 		this.apiService.updateLead(this.editModel, this.selectedLead.LeadID).subscribe((response) => {
 			if (response.status == 'Ok') {
 				this.messageService.add({ severity: 'success', summary: 'Actualizar prospecto potencial es exitoso' });
-				this.saving=false;
+				this.saving = false;
 				Object.keys(this.editModel).forEach((key: string) => {
 					this.selectedLead[key] = this.editModel[key];
 				});
@@ -76,7 +75,11 @@ export class LeadEditComponent implements OnInit {
 			else {
 				this.messageService.add({ severity: 'error', summary: 'Hay un error durante la actualización.' });
 			}
+		}, error => {
+			this.saving = false;
 		})
+
+
 
 	}
 
